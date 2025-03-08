@@ -4,41 +4,31 @@ Texto descritivo introdutório apresentando a visão geral do projeto a ser dese
 
 ## Problema
 
-Nesta seção, você deve apresentar o problema que a sua investigação/experimentação busca resolver. Por exemplo, caso o _dataset_ selecionado, seja um _dataset_ que contenha uma série temporal com o preço de diversas ações da bolsa de valores, o problema pode estar relacionado a dificuldade em saber a melhor hora (hora certa??) de comprar ou então, de executar a venda de uma determinada ação.
+O mercado imobiliário no Condado de King, Washington, é altamente dinâmico e complexo, sendo influenciado por uma variedade de fatores relacionados, como localização, características físicas dos imóveis (tamanho, número de quartos, idade da propriedade, etc.), condições econômicas (taxas de juros, inflação, desemprego) e até mesmo tendências sociais e demográficas. Diante dessa complexidade, determinar o valor justo de um imóvel torna-se um desafio significativo, tanto para compradores quanto para vendedores, investidores e instituições financeiras.
 
-Descreva ainda o contexto em que essa aplicação será usada, se houver: empresa parceira, tecnologias etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+Um dos principais problemas enfrentados é a falta de precisão na avaliação dos preços, o que pode levar a decisões ruins. Compradores podem pagar valores acima do mercado, enquanto vendedores podem perder oportunidades de maximizar seus lucros. Investidores, por sua vez, podem enfrentar dificuldades em identificar propriedades com potencial de valorização, e instituições financeiras podem incorrer em riscos ao conceder financiamentos baseados em avaliações imprecisas. Além disso, a volatilidade do mercado e a constante mudança nos fatores que influenciam os preços dificultam a criação de modelos de previsão confiáveis.
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 ## Questão de pesquisa
 
 A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É ela que motiva a realização da pesquisa e deverá ser adequada ao problema identificado. Ao término de sua pesquisa/experimentação, o objetivo é que seja encontrada a resposta da questão de pesquisa previamente definida.
 
-> **Links Úteis**:
-> - [Questão de pesquisa](https://www.enago.com.br/academy/how-to-develop-good-research-question-types-examples/)
-> - [Problema de pesquisa](https://blog.even3.com.br/problema-de-pesquisa/)
 
 ## Objetivos preliminares
 
-Aqui você deve descrever os objetivos preliminares do trabalho indicando que o objetivo geral é experimentar modelos de aprendizado de máquina adequados para solucionar o problema apresentado acima. 
+O objetivo geral deste projeto de aprendizado de máquina é desenvolver e implementar modelos preditivos robustos capazes de estimar com precisão os preços de imóveis no Condado de King, Washington, contribuindo para uma melhor compreensão do mercado imobiliário local. Para isso, o projeto tem como objetivos preliminares:
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+Explorar e experimentar diferentes algoritmos de aprendizado de máquina, selecionando aqueles mais adequados para resolver o problema de previsão de preços de imóveis, com foco em modelos de regressão.
 
-Por exemplo: um objetivo específico pode estar relacionado a predizer a tendência de alta, estabilidade ou queda de uma determinada ação em uma determinada janela do tempo ou então, predizer o valor exato de uma determinada ação.
-Lembre-se que, à medida que a pesquisa/experimentação evolui, os objetivos podem evoluir também, portanto, não se esqueça de fazer as atualizações necessárias.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Desenvolver e otimizar modelos de regressão que possam prever os valores das propriedades com base em variáveis como localização, características físicas dos imóveis e condições econômicas.
+
+Identificar e analisar os principais fatores que influenciam os preços dos imóveis na região, utilizando técnicas de análise de dados e interpretação dos modelos para fornecer insights valiosos sobre as dinâmicas do mercado.
+
 
 ## Justificativa
 
 Descreva a importância ou a motivação para trabalhar com o conjunto de dados escolhido. Indique as razões pelas quais você escolheu seus objetivos específicos, as razões para aprofundar o estudo do problema identificado e qual o impacto que tal problema provoca na sociedade. Lembre-se de quantificar (com dados reais e suas respectivas fontes) este impacto.
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
@@ -46,11 +36,6 @@ Descreva quem serão as pessoas que poderão se beneficiar com a sua investigaç
 
 Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
 
 ## Estado da arte
 
@@ -70,8 +55,6 @@ Nesta seção, você deverá descrever detalhadamente o _dataset_ selecionado. L
 
 Nesta seção, você deverá estruturar o seu Canvas Analítico. O Canvas Analítico tem o papel de registrar a organização das ideias e apresentar o modelo de negócio. O Canvas Analítico deverá ser preenchido integralmente mesmo que você não tenha "tantas certezas".
 
-> **Links Úteis**:
-> - [Modelo do Canvas Analítico](https://github.com/ICEI-PUC-Minas-PMV-SI/PesquisaExperimentacao-Template/blob/main/help/Software-Analtics-Canvas-v1.0.pdf)
 
 # Vídeo de apresentação da Etapa 01
 
