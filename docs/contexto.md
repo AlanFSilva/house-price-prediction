@@ -1,6 +1,8 @@
 # Introdução
 
-Texto descritivo introdutório apresentando a visão geral do projeto a ser desenvolvido considerando o contexto em que ele se insere, os objetivos gerais, a justificativa e o público-alvo do projeto.
+O mercado imobiliário no Condado de King, Washington, é altamente dinâmico e influenciado por fatores como localização, características dos imóveis e condições econômicas. Prever com precisão os preços dos imóveis é essencial para compradores, vendedores, investidores e instituições financeiras, que buscam minimizar riscos e maximizar retornos.
+
+Este projeto de ciência de dados utiliza um conjunto de dados completo do Kaggle para desenvolver modelos de aprendizado de máquina capazes de prever os preços dos imóveis na região. O objetivo é não apenas criar uma ferramenta preditiva eficaz, mas também fornecer insights sobre os fatores que influenciam o mercado imobiliário local, apoiando decisões mais informadas.
 
 ## Problema
 
@@ -11,45 +13,77 @@ Um dos principais problemas enfrentados é a falta de precisão na avaliação d
 
 ## Questão de pesquisa
 
-A questão de pesquisa é a base de todo o trabalho que será desenvolvido. É ela que motiva a realização da pesquisa e deverá ser adequada ao problema identificado. Ao término de sua pesquisa/experimentação, o objetivo é que seja encontrada a resposta da questão de pesquisa previamente definida.
+Quais são os principais fatores que influenciam os preços dos imóveis no Condado de King, Washington, e como modelos de aprendizado de máquina podem ser utilizados para prever esses preços com precisão?
 
 
 ## Objetivos preliminares
 
 O objetivo geral deste projeto de aprendizado de máquina é desenvolver e implementar modelos preditivos robustos capazes de estimar com precisão os preços de imóveis no Condado de King, Washington, contribuindo para uma melhor compreensão do mercado imobiliário local. Para isso, o projeto tem como objetivos preliminares:
 
-Explorar e experimentar diferentes algoritmos de aprendizado de máquina, selecionando aqueles mais adequados para resolver o problema de previsão de preços de imóveis, com foco em modelos de regressão.
+1. Explorar e experimentar diferentes algoritmos de aprendizado de máquina, selecionando aqueles mais adequados para resolver o problema de previsão de preços de imóveis, com foco em modelos de regressão.
 
-Desenvolver e otimizar modelos de regressão que possam prever os valores das propriedades com base em variáveis como localização, características físicas dos imóveis e condições econômicas.
+2. Desenvolver e otimizar modelos de regressão que possam prever os valores das propriedades com base em variáveis como localização, características físicas dos imóveis e condições econômicas.
 
-Identificar e analisar os principais fatores que influenciam os preços dos imóveis na região, utilizando técnicas de análise de dados e interpretação dos modelos para fornecer insights valiosos sobre as dinâmicas do mercado.
+3. Identificar e analisar os principais fatores que influenciam os preços dos imóveis na região, utilizando técnicas de análise de dados e interpretação dos modelos para fornecer insights valiosos sobre as dinâmicas do mercado.
 
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com o conjunto de dados escolhido. Indique as razões pelas quais você escolheu seus objetivos específicos, as razões para aprofundar o estudo do problema identificado e qual o impacto que tal problema provoca na sociedade. Lembre-se de quantificar (com dados reais e suas respectivas fontes) este impacto.
+O mercado imobiliário no Condado de King, Washington, é vital para a economia local e seus mais de 2,2 milhões de habitantes. Com uma área de 5.976,3 km², que inclui desde áreas urbanas como Seattle até regiões naturais, o condado apresenta uma diversidade única de imóveis, influenciados por fatores como localização e condições econômicas. Essa complexidade torna a avaliação precisa dos preços dos imóveis um desafio necessário.
+
+Esse projeto visa facilitar decisões relacionadas ao mercado imobiliário, garantindo transações justas para compradores e vendedores. Além disso, os resultados podem auxiliar no planejamento urbano, fornecendo dados confiáveis para políticas públicas e desenvolvimento eficaz. Também contribui para a redução de riscos de instituições financeiras e investidores, que podem usar modelos preditivos precisos para tomar decisões mais seguras.
+
+A relevância histórica e econômica do condado, fundado em 1852 e lar de Seattle, reforça a importância de compreender seu mercado imobiliário. Este projeto não só aborda uma necessidade prática, mas também promove o desenvolvimento sustentável e o bem-estar da comunidade local.
 
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que poderão se beneficiar com a sua investigação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+O público-alvo deste projeto abrange compradores e vendedores de imóveis, que buscam avaliações precisas para transações justas; investidores, que dependem de dados confiáveis para identificar oportunidades e reduzir riscos; e instituições financeiras, que utilizam previsões para calcular riscos em financiamentos. Também inclui corretores e imobiliárias, que precisam de informações para assessorar clientes e otimizar negócios, além de governos e urbanistas, que utilizam dados para políticas públicas e planejamento urbano eficaz. Acadêmicos e pesquisadores interessados em estudos sobre mercados imobiliários e modelos preditivos, bem como a sociedade em geral, que se beneficia de um mercado mais transparente e políticas informadas, completam o público-alvo. Esses grupos dependem de informações confiáveis para decisões estratégicas, econômicas ou sociais.
 
 
 ## Estado da arte
 
-Nesta seção, deverão ser descritas outras abordagens identificadas na literatura que foram utilizadas para resolver problemas similares ao problema em questão. Para isso, faça uma pesquisa detalhada e identifique, no mínimo, 5 trabalhos que tenham utilizado dados em contexto similares e então: (a) detalhe e contextualize o problema a ser solucionado no trabalho, (b) descreva as principais características do _dataset_ utilizado, (c) detalhe quais abordagens/algoritmos foram utilizados (e seus parâmetros), (d) identifique as métricas de avaliação empregadas, e (e) fale sobre os resultados obtidos. 
+O uso de técnicas de aprendizado de máquina para previsão de preços de imóveis tem se consolidado como uma abordagem eficaz em diversos contextos geográficos e mercados. Projetos recentes demonstram a aplicação de métodos avançados para melhorar a precisão das previsões e identificar os fatores mais relevantes que influenciam os valores das propriedades.
 
-> **Links Úteis**:
-> - [Google Scholar](https://scholar.google.com/)
-> - [IEEE Xplore](https://ieeexplore.ieee.org/Xplore/home.jsp)
-> - [Science Direct](https://www.sciencedirect.com/)
-> - [ACM Digital Library](https://dl.acm.org/)
+[Malere et al. (2019)](https://repositorio.ufc.br/bitstream/riufc/48854/3/2019_tcc_ghpsilva.pdf?utm_source=) exploraram a aplicação de técnicas de mineração de dados e aprendizado de máquina para prever preços de imóveis em diferentes regiões do Brasil. O estudo destacou a importância da seleção de variáveis relevantes, como localização, infraestrutura e características físicas dos imóveis, e comparou o desempenho de múltiplos modelos, incluindo regressão linear e métodos baseados em árvores de decisão. Os resultados mostraram que a escolha adequada de variáveis e algoritmos pode melhorar significativamente a precisão das previsões.
+
+[Jha et al. (2020)](https://arxiv.org/abs/2008.09922?utm_source=) desenvolveram um modelo de classificação para prever se o preço de venda de propriedades na Flórida, EUA, seria maior ou menor que o preço listado. Utilizando algoritmos como Regressão Logística, Random Forest e XGBoost, combinados com técnicas de codificação de alvos, o estudo demonstrou a eficácia de métodos ensemble para capturar padrões complexos nos dados. O trabalho destacou a importância de integrar múltiplas abordagens para melhorar a robustez dos modelos.
+
+[Chou (2022)](https://repositorio.pucgoias.edu.br/jspui/bitstream/123456789/7983/1/intelig%C3%AAncia%20artificial%20no%20mercado%20imobili%C3%A1rio.pdf?utm_source) focou na previsão de preços de imóveis em Taipei, Taiwan, utilizando técnicas de aprendizado de máquina para analisar fatores como localização, tamanho do imóvel e condições econômicas. O estudo evidenciou a relevância de modelos como redes neurais e Gradient Boosting para lidar com a complexidade do mercado imobiliário, especialmente em áreas urbanas densamente povoadas.
+
+[Silva (2019)](https://repositorio.ufc.br/handle/riufc/48854?locale=es&utm_source) propôs a aplicação de metodologias de aprendizagem computacional para avaliação de imóveis em Fortaleza, Brasil. O estudo comparou o desempenho de diferentes algoritmos, como Random Forest e Support Vector Machines (SVM), e discutiu a importância de escolher modelos que se adaptem às particularidades do mercado local. Os resultados reforçaram a necessidade de personalizar abordagens para cada contexto geográfico.
+
+[Alencar (2020)](https://bdta.abcd.usp.br/directbitstream/766cd876-04c6-4f3e-ae20-a0314fb58c37/Sergio%20Ricardo%20Ribeiro%20Alencar.pdf?utm_source) explorou a aplicação de modelos de aprendizado de máquina na precificação de imóveis, destacando a importância da qualidade e quantidade dos dados para a precisão das previsões. O estudo enfatizou que a coleta e o pré-processamento de dados são etapas críticas para o sucesso dos modelos, especialmente em mercados com alta variabilidade e dinâmica complexa.
+
 
 # Descrição do _dataset_ selecionado
 
-Nesta seção, você deverá descrever detalhadamente o _dataset_ selecionado. Lembre-se de informar o link de acesso a ele, bem como, de descrever cada um dos seus atributos (a que se refere, tipo do atributo etc.), se existem atributos faltantes etc.
+O conjunto de dados, disponibilizado no **Kaggle**, inclui os preços de venda de imóveis no Condado de King, nos EUA, os imóveis foram vendidos no período entre maio de 2014 e maio de 2015. Com **21.613 registros** completos, sem dados faltantes. Os dados estão distribuídos em **21 colunas**, detalhadas na tabela abaixo , e estão no formato **CSV**. [kc_house_data.csv](src\kc_house_data.csv)
+
+
+| Coluna            | Descrição                                                                 |
+|-------------------|---------------------------------------------------------------------------|
+| id                | Identificação única de um imóvel                                          |
+| date              | Data de venda do imóvel                                                   |
+| price             | Preço do imóvel (variável alvo para previsão)                             |
+| bedrooms          | Número de quartos do imóvel                                               |
+| bathrooms         | Número de banheiros do imóvel                                             |
+| sqft_living       | Metragem quadrada da área habitável                                       |
+| sqft_lot          | Metragem quadrada do terreno                                              |
+| floors            | Número total de andares (níveis) do imóvel                                |
+| waterfront        | Indica se o imóvel tem vista para alguma fonte de água (1 = sim, 0 = não)               |
+| view              | Indica se o imóvel foi visualizado  (1 = sim, 0 = não)                                      |
+| condition         | Avaliação da condição geral do imóvel                                     |
+| grade             | Nota geral do imóvel, baseada no sistema de classificação do Condado de King |
+| sqft_above        | Metragem quadrada da casa, excluindo o porão                              |
+| sqft_basement     | Metragem quadrada do porão                                                |
+| yr_built          | Ano de construção do imóvel                                               |
+| yr_renovated      | Ano de renovação do imóvel (se aplicável)                                 |
+| zipcode           | Código postal da localização do imóvel                                    |
+| lat               | Coordenada de latitude do imóvel                                          |
+| long              | Coordenada de longitude do imóvel                                         |
+| sqft_living15     | Metragem quadrada da sala de estar em 2015 (indica possíveis reformas)    |
+| sqft_lot15        | Metragem quadrada do terreno em 2015 (indica possíveis reformas)          |
 
 # Canvas analítico
 
@@ -62,7 +96,8 @@ Nesta seção, um vídeo de, 5 a 8 minutos deverá ser produzido. No vídeo, cad
 
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho utilizando o padrão ABNT.
 
-> **Links Úteis**:
-> - [Padrão ABNT PUC Minas](https://portal.pucminas.br/biblioteca/index_padrao.php?pagina=5886)
+> **Links**:
+> - [King County Demographics](https://kingcounty.gov/en/dept/executive/governance-leadership/performance-strategy-budget/regional-planning/demographics)
+> - [Dados do mercado imobiliário de King County.](https://www.kaggle.com/datasets/soylevbeytullah/house-prices-dataset)
+
