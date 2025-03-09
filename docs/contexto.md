@@ -87,7 +87,7 @@ O conjunto de dados, disponibilizado no **Kaggle**, inclui os preços de venda d
 
 # Canvas analítico
 
-Nesta seção, você deverá estruturar o seu Canvas Analítico. O Canvas Analítico tem o papel de registrar a organização das ideias e apresentar o modelo de negócio. O Canvas Analítico deverá ser preenchido integralmente mesmo que você não tenha "tantas certezas".
+![Canvas Analítico!](/docs/img/canvas-analitico.png "Canvas Analítico")
 
 
 # Vídeo de apresentação da Etapa 01
@@ -100,4 +100,6 @@ Nesta seção, um vídeo de, 5 a 8 minutos deverá ser produzido. No vídeo, cad
 > **Links**:
 > - [King County Demographics](https://kingcounty.gov/en/dept/executive/governance-leadership/performance-strategy-budget/regional-planning/demographics)
 > - [Dados do mercado imobiliário de King County.](https://www.kaggle.com/datasets/soylevbeytullah/house-prices-dataset)
-
+> - [Essential Data Cleaning Techniques for Accurate Machine Learning Models](https://www.kdnuggets.com/essential-data-cleaning-techniques-accurate-machine-learning-models)
+> - [Panda User Guide](https://pandas.pydata.org/docs/user_guide/index.html)
+> - [Scikit Learn User Guide](https://scikit-learn.org/stable/user_guide.html)
