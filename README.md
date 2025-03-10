@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+#  Modelagem Preditiva de Preços Imobiliários no Condado de King
 
 `CURSO: Sistemas de Informação`
 
@@ -6,7 +6,8 @@
 
 `SEMESTRE: 7º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Projeto: Pesquisa e Experimentação em Sistemas de Informação. Análise e Modelagem Preditiva de Preços Imobiliários 
+
 
 ## Integrantes
 
