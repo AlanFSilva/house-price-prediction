@@ -92,7 +92,8 @@ O conjunto de dados, disponibilizado no **Kaggle**, inclui os preços de venda d
 
 # Vídeo de apresentação da Etapa 01
 
-Nesta seção, um vídeo de, 5 a 8 minutos deverá ser produzido. No vídeo, cada aluno do grupo deverá apresentar uma parte do trabalho realizado nesta etapa. Todos os alunos deverão participar do vídeo. Alunos que não participarem, serão penalizados na nota final da etapa.
+[video de apresentação Etapa 1](videos/ProjetoHousePricing-Etapa1.mp4)
+
 
 # Referências
 
@@ -101,5 +102,6 @@ Nesta seção, um vídeo de, 5 a 8 minutos deverá ser produzido. No vídeo, cad
 > - [King County Demographics](https://kingcounty.gov/en/dept/executive/governance-leadership/performance-strategy-budget/regional-planning/demographics)
 > - [Dados do mercado imobiliário de King County.](https://www.kaggle.com/datasets/soylevbeytullah/house-prices-dataset)
 > - [Essential Data Cleaning Techniques for Accurate Machine Learning Models](https://www.kdnuggets.com/essential-data-cleaning-techniques-accurate-machine-learning-models)
-> - [Panda User Guide](https://pandas.pydata.org/docs/user_guide/index.html)
+> - [Pandas User Guide](https://pandas.pydata.org/docs/user_guide/index.html)
 > - [Scikit Learn User Guide](https://scikit-learn.org/stable/user_guide.html)
+> - [Software Analytics Canvas](https://www.feststelltaste.de/software-analytics-canvas/)
