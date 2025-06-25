@@ -30,12 +30,15 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
+        working-directory: ./src  # Instala dependências apenas dentro de src
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: |
+          cd src
+          zip -r ../release.zip .
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
@@ -69,3 +72,4 @@ jobs:
           app-name: 'kc-house-price-pred-web'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6999CD2AF5F44EF394905FA593E7F4B8 }}
+          package: release.zip
