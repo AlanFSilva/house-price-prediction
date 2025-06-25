@@ -1,9 +1,9 @@
-import pickle
 import numpy as np
 import pandas as pd
 import os
 import logging
 from sklearn.preprocessing import PolynomialFeatures
+from joblib import load
 
 script_dir = os.getcwd()
 models = ['LinearRegression','RandomForest','GradientBoosting','XGBoost','LightGBM'] 
@@ -49,19 +49,17 @@ def predict_model(payload, model):
 def deserialize_model(model_name):
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        #base_path = os.path.join(script_dir, 'site', 'wwwroot')
-
-        filename = os.path.join("serializers", f"models-{model_name}.pkl")
+        filename = os.path.join("serializers", f"models-{model_name}.joblib")
         file_path = os.path.join(script_dir, filename)
+
         logging.error(file_path)
         print(file_path)
 
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"Model file not found at {file_path}")
             
-        with open(file_path, 'rb') as file:
-            return pickle.load(file)
-            
+        return load(file_path) 
+    
     except Exception as e:
         # Log detalhado para diagnóstico no Azure
         error = f"Failed to deserialize model {model_name}: {str(e)}"
