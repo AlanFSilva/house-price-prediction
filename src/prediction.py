@@ -2,7 +2,7 @@ import pickle
 import numpy as np
 import pandas as pd
 import os
-import json
+import logging
 from sklearn.preprocessing import PolynomialFeatures
 
 script_dir = os.getcwd()
@@ -47,12 +47,27 @@ def predict_model(payload, model):
     return y_pred
 
 def deserialize_model(model_name):
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    filename = f"serializers\\models-{model_name}.pkl"
-    file_path = os.path.join(script_dir, filename)
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        #base_path = os.path.join(script_dir, 'site', 'wwwroot')
 
-    with open(file_path, 'rb') as file:
-        return pickle.load(file)
+        filename = os.path.join("serializers", f"models-{model_name}.pkl")
+        file_path = os.path.join(script_dir, filename)
+        logging.error(file_path)
+        print(file_path)
+
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"Model file not found at {file_path}")
+            
+        with open(file_path, 'rb') as file:
+            return pickle.load(file)
+            
+    except Exception as e:
+        # Log detalhado para diagnóstico no Azure
+        error = f"Failed to deserialize model {model_name}: {str(e)}"
+        logging.error(error)
+        print(error)
+        raise
 
 def predict_models_by_request(payload):
     predicts = []
