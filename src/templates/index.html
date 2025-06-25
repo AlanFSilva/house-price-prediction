@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" :class="{ 'dark': $store.app.isDark}"  x-data="$store.app" x-init="init()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulator</title>
+    <script>
+      tailwind.config = {
+        darkMode: 'class'
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/htmx.org" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://unpkg.com/heroicons@1.0.6/outline"></script>
+  <body class="transition-colors duration-300"
+   :class="isDark ? 'bg-black text-white' : 'bg-white text-black'">
+   <header 
+  class="shadow-sm py-10 px-4 mb-10 transition-colors duration-300"
+  :class="isDark ? 'bg-gray-900 text-white' : 'bg-white text-black'"
+>
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-4 sm:space-y-0">
+    <div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+        King County Price Prediction
+      </h1>
+      <p :class="isDark ? 'text-gray-300' : 'text-gray-600'" class="mt-1 transition-colors">
+        Predict real estate prices based on property and location details
+      </p>
+    </div>
+
+    <button 
+      @click="isDark = !isDark" 
+      class="relative inline-flex h-10 w-16 items-center rounded-full transition-colors duration-300"
+      :class="isDark 
+        ? 'bg-gray-600 hover:bg-gray-400' 
+        : 'bg-gray-200 hover:bg-gray-400'"
+    >
+       <span class="sr-only">Toggle theme</span>
+  <span class="flex items-center justify-center h-8 w-8 transform rounded-full bg-white shadow-md transition-transform duration-300"
+    :class="isDark ? 'translate-x-7' : 'translate-x-1'">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+      :class="isDark ? 'text-gray-600' : 'text-yellow-500'">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        :d="isDark ? 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z' : 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z'" />
+    </svg>
+  </span>
+    </button>
+  </div>
+</header>
+
+    <div class="max-w-5xl mx-auto px-4 mb-10">
+      <form class="space-y-6 py-12" 
+            @submit.prevent="$store.app.preparePost" 
+            hx-target="#result" 
+            hx-trigger="submit" 
+            hx-ext="json"
+            hx-swap="innerHTML"
+      >
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-4">
+            <div>
+              <label class="block font-semibold mb-1">House Size</label>
+              <input type="number" min="200" max="20000" required 
+                  class="w-full p-2 rounded border transition-colors duration-200"
+    :class="isDark 
+      ? 'bg-gray-800 text-white border-gray-600 placeholder-gray-400' 
+      : 'bg-white text-black border-gray-300 placeholder-gray-500'"
+    placeholder="Enter size in sqft"
+              x-model="$store.app.form.sqft_living" 
+              name="sqft_living" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Lot Size</label>
+              <input type="number" min="500" max="2000000" required 
+                                class="w-full p-2 rounded border transition-colors duration-200"
+    :class="isDark 
+      ? 'bg-gray-800 text-white border-gray-600 placeholder-gray-400' 
+      : 'bg-white text-black border-gray-300 placeholder-gray-500'"
+    placeholder="Enter size in sqft"
+              x-model="$store.app.form.sqft_lot" name="sqft_lot" />
+            </div>
+            <template x-for="field in ['floors','bedrooms','bathrooms']" :key="field">
+              <div>
+                <label class="block font-semibold mb-1 capitalize" x-text="field"></label>
+                <div class="flex items-center space-x-2">
+                    <button 
+                      type="button" 
+                      class="px-3 py-1 border rounded" 
+                      @click="
+                        if (field === 'bedrooms') {
+                          $store.app.form[field] = Math.max(1, Math.round($store.app.form[field]) - 1);
+                        } else {
+                          $store.app.form[field] = Math.max(1, $store.app.form[field] - 0.5);
+                        }
+                      "
+                    >−</button>
+
+                    <span class="w-10 text-center" x-text="$store.app.form[field]"></span>
+
+                    <button 
+                      type="button" 
+                      class="px-3 py-1 border rounded" 
+                      @click="
+                        if (field === 'bedrooms') {
+                          $store.app.form[field] = Math.min(11, Math.round($store.app.form[field]) + 1);
+                        } else {
+                          $store.app.form[field] = Math.min(11, $store.app.form[field] + 0.5);
+                        }
+                      "
+                    >+</button>
+                </div>
+                <input type="hidden" :name="field" :value="$store.app.form[field]" min="1" max="10"/>
+              </div>
+            </template>
+                        <div>
+                <label class="block mb-1">Condition</label>
+                <select 
+                    class="w-full p-2 rounded border transition-colors duration-200"
+    :class="isDark 
+      ? 'bg-gray-800 text-white border-gray-600 placeholder-gray-400' 
+      : 'bg-white text-black border-gray-300 placeholder-gray-500'"
+    required
+                x-model="$store.app.form.condition" name="condition">
+                  <option value="">Select</option>
+                  <option value="1">1 - Poor</option>
+                  <option value="2">2 - Fair</option>
+                  <option value="3">3 - Average</option>
+                  <option value="4">4 - Good</option>
+                  <option value="5">5 - Very Good</option>
+                </select>
+              </div>
+              <div>
+                <label class="block mb-1">Grade</label>
+                <select 
+                    class="w-full p-2 rounded border transition-colors duration-200"
+    :class="isDark 
+      ? 'bg-gray-800 text-white border-gray-600 placeholder-gray-400' 
+      : 'bg-white text-black border-gray-300 placeholder-gray-500'"
+    required
+                x-model="$store.app.form.grade" name="grade">
+                  <option value="">Select</option>
+                  <option value="1">1 - Below minimum standards</option>
+                  <option value="2">2 - Very poor construction</option>
+                  <option value="3">3 - Basic or temporary</option>
+                  <option value="4">4 - Old, low quality</option>
+                  <option value="5">5 - Low cost, simple</option>
+                  <option value="6">6 - Meets code, low quality</option>
+                  <option value="7">7 - Average quality</option>
+                  <option value="8">8 - Above average</option>
+                  <option value="9">9 - Better design</option>
+                  <option value="10">10 - High quality</option>
+                  <option value="11">11 - Custom, upscale</option>
+                  <option value="12">12 - Top quality custom</option>
+                  <option value="13">13 - Luxury mansion</option>
+                </select>
+              </div>
+          </div>
+          <div class="row-span-3">
+            <label class="block font-semibold mb-1">Location</label>
+            <div id="map"></div>
+            <div style="margin-top: 20px">
+              <p><strong>Latitude:</strong> <span x-text="$store.app.lat"></span></p>
+              <p><strong>Longitude:</strong> <span x-text="$store.app.long"></span></p>
+              <div>
+                <p>
+                  <strong>Zipcode:</strong> <span x-text="$store.app.zipcode"></span> 
+                  <strong style="margin-left: 50px">County:</strong> <span x-text="$store.app.county"></span>
+                </p>
+                <p x-show="$store.app.addressError !== 'VALID' && $store.app.addressError !== null" class="text-red-600 mt-2"> Invalid Address, please select another location</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+           <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block mb-1">Year Built</label>
+                <input type="number" min="1" max="100" 
+                                class="w-full p-2 rounded border transition-colors duration-200"
+    :class="isDark 
+      ? 'bg-gray-800 text-white border-gray-600 placeholder-gray-400' 
+      : 'bg-white text-black border-gray-300 placeholder-gray-500'"
+    placeholder="Enter an integer value"
+                x-model="$store.app.form.house_age" name="house_age" />
+              </div>
+              <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="flex items-center space-x-2 switch">
+                    <input type="checkbox" x-model="$store.app.form.view" name="view" />
+                    <span class="slider round"></span>
+                    <span>View</span>
+                  </label>
+                </div>
+                <div>
+                  <label class="flex items-center space-x-2 switch">
+                    <input type="checkbox" x-model="$store.app.form.waterfront" name="waterfront" />
+                    <span class="slider round"></span>
+                    <span>Waterfront</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+        <div class="text-right">
+          <button 
+            type="submit" 
+            class="px-6 py-2 rounded bg-black text-white dark:bg-white dark:text-black shadow hover:shadow-md transition">
+              Simulate
+          </button>
+        </div>
+      </form>
+      <div x-show="$store.app.loading" class="flex items-center py-12 justify-center">
+        <svg class="animate-spin h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3.5-3.5L12 0v4a8 8 0 00-8 8h4z"></path>
+        </svg>
+        <span class="ml-3 text-blue-600 font-medium">Simulating...</span>
+      </div>
+      <div id="result" hx-target="this" hx-swap="innerHTML" class="mt-4 py-12"></div>
+    </div>
+
+    <script>
+      let alpineMapComponent;
+
+      window.mapInitializer = {
+            component: null,
+            initFunction: null,
+            initialized: false,
+            
+            initialize() {
+                if (this.component && this.initFunction) {
+                    this.initFunction.call(this.component);
+                    this.initialized = true;
+                }
+            }
+        };
+      //Load Alpine Store
+       document.addEventListener('alpine:init', () => {
+        Alpine.store('app', {
+          loading: false,
+          map: null,
+          marker: null,
+          lat: '',
+          long: '',
+          zipcode: '',
+          county: '',
+          addressError: null,
+          isDark: false,
+          form: {
+            sqft_living: '',
+            sqft_lot: '',
+            floors: 1,
+            bedrooms: 1,
+            bathrooms: 1,
+            condition: '',
+            grade: '',
+            house_age: 1,
+            view: false,
+            waterfront: false,
+          },
+
+          init() {
+            this.isDark = localStorage.theme === 'dark' || (
+            !('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches
+          )
+          this.applyTheme()
+            window.mapInitializer.component = this;
+            window.mapInitializer.initFunction = this.initMap;
+            
+            this.loadGoogleMapsAPI();
+          },
+           toggleTheme() {
+          this.isDark = !this.isDark
+          localStorage.theme = this.isDark ? 'dark' : 'light'
+          this.applyTheme()
+        },
+        applyTheme() {
+          document.documentElement.classList.toggle('dark', this.isDark)
+        },
+
+          loadGoogleMapsAPI() {
+              if (typeof google === 'undefined' || !google.maps) {
+                  const script = document.createElement('script');
+                  script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAie3gZXb0aDB6MZnLixTiJPAmQBfzwVsE&libraries=places&callback=mapInitializer.initialize`;
+                  script.async = true;
+                  script.defer = true;
+                  document.head.appendChild(script);
+              } else if (window.mapInitializer.initialized) {
+                  this.initMap();
+              }
+          },
+
+          preparePost(event) {
+            event.preventDefault();
+            const formTarget = event.target;
+            const formData = new FormData(formTarget);
+
+            const transformed = {
+              bedrooms: parseInt(formData.get('bedrooms')) || 0,
+              bathrooms: parseInt(formData.get('bathrooms')) || 0,
+              sqft_living: parseInt(formData.get('sqft_living')) || 0,
+              sqft_lot: parseInt(formData.get('sqft_lot')) || 0,
+              floors: parseInt(formData.get('floors')) || 0,
+              waterfront: formData.get('waterfront') === 'on' ? 1 : 0,
+              view: formData.get('view') === 'on' ? 1 : 0,
+              condition: parseInt(formData.get('condition')) || null,
+              grade: parseInt(formData.get('grade')) || null,
+              house_age: parseInt(formData.get('house_age')) || null,
+              zipcode: parseInt(this.zipcode),
+              lat: this.lat,
+              long: this.long
+            };
+
+            if(this.addressError === "VALID"){
+              this.loading = true;
+              fetch("/simulate", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'HX-Request': 'true',
+                },
+                body: JSON.stringify(transformed),
+              })
+                .then((response) => response.text())
+                .then((html) => {
+                  this.loading = false;
+                  const target = formTarget.getAttribute('hx-target');
+                  if (target) {
+                    document.querySelector(target).innerHTML = html;
+                  } else {
+                    console.log('Resposta recebida:', html);
+                  }
+                }).catch((error) => {
+                  console.log(error);
+                  alert(error);
+                  this.loading = false;
+                });
+            }
+            else{
+              alert("Invalid Address")
+            }
+            return false;
+          },
+
+          placeMarker(location) {
+            if (this.marker) {
+              this.marker.setPosition(location);
+            } else {
+              this.marker = new google.maps.Marker({
+                position: location,
+                map: this.map,
+              });
+            }
+
+            // Atualiza coordenadas
+            this.lat = location.lat();
+            this.long = location.lng();
+            
+            // Centraliza o mapa no marcador
+            this.map.panTo(location);
+          },
+
+          getAddressFromCoords(location) {
+            const geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ location: location }, (results, status) => {
+              if (status === 'OK') {
+                console.log(results)
+                if (results[0]) {
+                  this.zipcode = results[0].address_components.find(addr => addr.types[0] === "postal_code")?.short_name;
+                  console.log(this.zipcode);
+                  this.county = results[0].address_components.find(addr => addr.types[0] === "administrative_area_level_2").short_name;
+                  this.addressError = (this.county === "King County" || this.county === "Condado de King")  && this.zipcode != undefined ? "VALID" : "INVALID"
+                } else {
+                  this.addressError = 'NOT_FOUND';
+                }
+              } else {
+                this.addressError = 'Erro: ' + status;
+              }
+            });
+          },
+
+          initMap() {
+            const defaultLatLng = { lat: 47.609657, lng: -122.335167 }; // Seattle
+
+            this.map = new google.maps.Map(document.getElementById('map'), {
+              center: defaultLatLng,
+              zoom: 12,
+            });
+
+            this.geocoder = new google.maps.Geocoder();
+
+            this.map.addListener('click', (e) => {
+              this.placeMarker(e.latLng);
+              this.getAddressFromCoords(e.latLng);
+            });
+          }
+        })
+      });
+    </script>
+  </body>
+</html>
