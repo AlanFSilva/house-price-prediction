@@ -68,22 +68,22 @@ O conjunto de dados, disponibilizado no **Kaggle**, inclui os preços de venda d
 | price             | Preço do imóvel (variável alvo para previsão)                             |
 | bedrooms          | Número de quartos do imóvel                                               |
 | bathrooms         | Número de banheiros do imóvel                                             |
-| sqft_living       | Metragem quadrada da área habitável                                       |
-| sqft_lot          | Metragem quadrada do terreno                                              |
+| sqft_living       | Pé quadrado  da área habitável                                       |
+| sqft_lot          | Pé quadrado  do terreno                                              |
 | floors            | Número total de andares (níveis) do imóvel                                |
 | waterfront        | Indica se o imóvel tem vista para alguma fonte de água (1 = sim, 0 = não)               |
 | view              | Indica se o imóvel foi visualizado  (1 = sim, 0 = não)                                      |
 | condition         | Avaliação da condição geral do imóvel                                     |
 | grade             | Nota geral do imóvel, baseada no sistema de classificação do Condado de King |
-| sqft_above        | Metragem quadrada da casa, excluindo o porão                              |
-| sqft_basement     | Metragem quadrada do porão                                                |
+| sqft_above        | Pé quadrado  da casa, excluindo o porão                              |
+| sqft_basement     | Pé quadrado  do porão                                                |
 | yr_built          | Ano de construção do imóvel                                               |
 | yr_renovated      | Ano de renovação do imóvel (se aplicável)                                 |
 | zipcode           | Código postal da localização do imóvel                                    |
 | lat               | Coordenada de latitude do imóvel                                          |
 | long              | Coordenada de longitude do imóvel                                         |
-| sqft_living15     | Metragem quadrada da sala de estar em 2015 (indica possíveis reformas)    |
-| sqft_lot15        | Metragem quadrada do terreno em 2015 (indica possíveis reformas)          |
+| sqft_living15     | Pé quadrado  da sala de estar em 2015 (indica possíveis reformas)    |
+| sqft_lot15        | Pé quadrado  do terreno em 2015 (indica possíveis reformas)          |
 
 # Canvas analítico
 

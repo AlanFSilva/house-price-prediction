@@ -1,29 +1,48 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title:
+title: "Real Estate Price Prediction in King County, WA"
 authors:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - name-suffix: Professor XXXX
+  - family-names: Silva
+    given-names: Alan Ferreira da 
+  - family-names: Lopes
+    given-names: Amanda Andrade
+  - family-names: Nieves
+    given-names: Angelica Sofia 
+  - family-names: Rodrigues
+    given-names: Estêvão Moura
+  - family-names: Marques
+    given-names: Kelly 
+  - family-names: Dias
+    given-names: Yael Joaquim Nobre
+  - name-suffix: Professor Neil Paiva Tizzo
     affiliation: PUC Minas
-    family-names:
-    given-names:
+date-released: 2025-06-18
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-1-pe7-t2-grupo-1-quartas-19h
+abstract: >
+  This project uses a complete dataset from Kaggle to develop machine learning models
+  capable of predicting real estate prices in King County, Washington. It aims to provide
+  accurate property valuations and actionable insights for buyers, sellers, investors,
+  and financial institutions.
 keywords:
-  -
-  -
-repository-code:
+  - Real Estate
+  - Property Prices
+  - King County, Washington
+  - Machine Learning
+  - Predictive Modeling
+  - Data Science
+  - Housing Market
+  - Property Valuation
+  - Real Estate Investment
+  - Location-based Analysis
+  - Economic Factors
+  - Market Trends
+  - Kaggle Dataset
+  - Price Prediction
+  - Housing Features
+  - Real Estate Analytics
+  - Decision Support
+  - Risk Management
+  - Model Accuracy
+  - Financial Institutions
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2023-06-30
